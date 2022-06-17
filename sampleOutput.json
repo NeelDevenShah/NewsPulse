@@ -1,0 +1,58 @@
+{
+    "status": "ok",
+    "totalResults": 4,
+    "articles": [
+      {
+        "source": {
+          "id": null,
+          "name": "Ommcomnews.com"
+        },
+        "author": "OMMCOM NEWS",
+        "title": "Long Covid May Give Rise Rise To Dangerous New Variants: Report | Science & Tech - Ommcom News",
+        "description": "Vienna:  Long Covid, which can lingher up to months and even years in some people, has the potential to emerge into dangerous variants, scientists have found.\"Tracking SARS-CoV-2 evolution during persistent cases provides insight into the origins of",
+        "url": "https://ommcomnews.com/science-tech/long-covid-may-give-rise-rise-to-dangerous-new-variants-report",
+        "urlToImage": "https://ommcom.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/04/18145121/ea2ef6520212107e90ac6079baf16c48-1.jpg",
+        "publishedAt": "2022-06-16T15:02:35Z",
+        "content": "Vienna:  Long Covid, which can lingher up to months and even years in some people, has the potential to emerge into dangerous variants, scientists have found.\r\n“Tracking SARS-CoV-2 evolution during p… [+2332 chars]"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Hindustan Times"
+        },
+        "author": "HT Tech",
+        "title": "Want to shift from Android phone to iPhone 13? WhatsApp has some great news for you - HT Tech",
+        "description": "For all those people who have been wanting to shift to iPhone, perhaps the latest iPhone 13, from an Android phone, but were stopped by the fact that WhatsApp chat transfer was not possible, then here is some good news.",
+        "url": "https://tech.hindustantimes.com/how-to/want-to-shift-from-android-phone-to-iphone-13-whatsapp-has-some-great-news-for-you-71655388921840.html",
+        "urlToImage": "https://images.hindustantimes.com/tech/img/2022/06/16/1600x900/f957d0ce-d7bc-11ec-a9a0-a5db2aa6f789_1654144744553_1655389030835.jpg",
+        "publishedAt": "2022-06-16T14:25:24Z",
+        "content": "For all those people who have been wanting to shift to iPhone, perhaps the latest iPhone 13, from an Android phone, but were stopped by the fact that WhatsApp chat transfer was not possible, then her… [+2652 chars]"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "India.com"
+        },
+        "author": "Zee Media Bureau",
+        "title": "iPhone 14 leak: Apple`s upcoming smartphone to feature biggest selfie camera upgrade - Zee News",
+        "description": "Apple iPhone 14 is all set to launch in the coming months. The tech giant could release the device in the month of September or October 2022, according to media reports.",
+        "url": "https://zeenews.india.com/technology/iphone-14-leak-apple-s-upcoming-smartphone-to-feature-biggest-selfie-camera-upgrade-2474527.html",
+        "urlToImage": "https://english.cdn.zeenews.com/sites/default/files/2022/06/16/1054561-untitled-design-22.jpg",
+        "publishedAt": "2022-06-16T11:55:43Z",
+        "content": "New Delhi: Apple iPhone 14 is all set to launch in the coming months. The tech giant could release the device in the month of September or October 2022, according to media reports. Ahead of the much-… [+2093 chars]"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "India Education Diary"
+        },
+        "author": "iednewsdesk",
+        "title": "Massachusetts Institute of Technology: Astronomers discover a multiplanet system nearby - India Education Diary",
+        "description": "Astronomers at MIT and elsewhere have discovered a new multiplanet system within our galactic neighborhood that lies just 10 parsecs, or about 33 light-years, from Earth, making it one of the closest known multiplanet systems to our own.At the heart",
+        "url": "https://indiaeducationdiary.in/massachusetts-institute-of-technology-astronomers-discover-a-multiplanet-system-nearby/",
+        "urlToImage": "https://indiaeducationdiary.in/wp-content/uploads/2021/12/Massachusetts-Institute-of-Technology.jpg",
+        "publishedAt": "2022-06-16T11:44:58Z",
+        "content": "Astronomers at MIT and elsewhere have discovered a new multiplanet system within our galactic neighborhood that lies just 10 parsecs, or about 33 light-years, from Earth, making it one of the closest… [+5810 chars]"
+      }
+    ]
+  }
