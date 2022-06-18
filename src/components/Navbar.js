@@ -19,6 +19,10 @@ export class Navbar extends Component {
           <a className="nav-link" href="/about">About</a>
         </li>
       </ul>
+      <div class="form-check form-switch  float-end">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+              <label class="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+         </div>
     </div>
   </div>
 </nav>        
