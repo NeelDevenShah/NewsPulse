@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import NewsItem from './NewsItem'
-import Spinner from './Spinner';
+import NewsItem from './components/NewsItem'
+import Spinner from './components/Spinner';
 
-export default class News extends Component {
+export default class Heading extends Component {
   articles=[]
   constructor(props){
     super(props);
@@ -12,57 +12,59 @@ export default class News extends Component {
       loading : false,
       page:1
     }
-    document.title=this.props.category+"- News Monkey"
+    document.title="Main Headlines- News Monkey"
   }
   
-  async updateNews(){
+  async newsUpdate(){
     this.setState({loading : true})
-    let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.akey}&page=${this.state.page}&pageSize=${this.props.newsSize}`;
+    let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${this.props.akey}&page=${this.state.page}&pageSize=${this.props.newsSize}`;
     let data=await fetch(url);
     let parsedData=await data.json();
     this.setState({articles: parsedData.articles,
-    totalArticles: parsedData.totalResults,
-    loading : false})
+       totalArticles: parsedData.totalResults,
+        loading : false})
   }
 
   async componentDidMount(){
     // this.setState({loading : true})
-    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.akey}&pageSize=${this.props.newsSize}`;
+    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${this.props.akey}&pageSize=${this.props.newsSize}`;
     // let data=await fetch(url);
     // let parsedData=await data.json();
     // this.setState({articles: parsedData.articles,
     //    totalArticles: parsedData.totalResults,
     //     loading : false})
-    this.updateNews();
+    this.newsUpdate();
   }
 
   handleNextclick=async ()=>{
     // this.setState({loading: true})
-    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.akey}&page=${this.state.page+1}&pageSize=${this.props.newsSize}`;
+    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${this.props.akey}&page=${this.state.page+1}&pageSize=${this.props.newsSize}`;
     // let data=await fetch(url);
     // let parsedData=await data.json()
     // this.setState({
+    //   page: this.state.page + 1,
     //   articles: parsedData.articles,
     //   loading : false
     // })
     this.setState({
-      page: this.state.page + 1,
+        page: this.state.page + 1
     })
-    this.updateNews();
+    this.newsUpdate();
   }
   handlePreviousClick=async ()=>{
     // this.setState({loading : true})
-    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.akey}&page=${this.state.page-1}&pageSize=${this.props.newsSize}`;
+    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${this.props.akey}&page=${this.state.page-1}&pageSize=${this.props.newsSize}`;
     // let data=await fetch(url);
     // let parsedData=await data.json()
     // this.setState({
+    //   page: this.state.page - 1,
     //   articles: parsedData.articles,
     //   loading : false
     // }) 
     this.setState({
-      page: this.state.page - 1,
+        page: this.state.page - 1
     })
-    this.updateNews();
+    this.newsUpdate();
   }
 
 
@@ -70,7 +72,7 @@ export default class News extends Component {
     let {mode, mode2}=this.props
     return (
       <div className='container my-3'>
-        <h2 className={`text-${mode2} text-center`} style={{margin: "40px 0px"}}>News Monkey- {this.props.category} Headlines</h2>
+        <h2 className={`text-${mode2} text-center`} style={{margin: "40px 0px"}}>News Monkey- Top Headlines</h2>
         <div className='row'>
         {this.state.loading &&<Spinner/>}
         {!this.state.loading && this.state.articles.map((element)=>{
