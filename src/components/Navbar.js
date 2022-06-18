@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 export class Navbar extends Component {
 
   render() {
+    let {mode, toogleMode}=this.props;
     return (
       <div>
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
   <div className="container-fluid">
     <a className="navbar-brand" href="/">News Monkey</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,9 +20,9 @@ export class Navbar extends Component {
           <a className="nav-link" href="/about">About</a>
         </li>
       </ul>
-      <div class="form-check form-switch  float-end">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-              <label class="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+      <div className={`form-check form-switch text-${mode==='light'?'dark':'light'} mx-4`}>
+              <input className="form-check-input" onClick={toogleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+              <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
          </div>
     </div>
   </div>

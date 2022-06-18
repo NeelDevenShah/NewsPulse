@@ -52,19 +52,20 @@ export default class News extends Component {
 
 
   render() {
+    let {mode, mode2}=this.props
     return (
       <div className='container my-3'>
-        <h2>News Monkey- Top Headlines</h2>
+        <h2 className={`text-${mode2}`}>News Monkey- Top Headlines</h2>
         <div className='row'>
         {this.state.articles.map((element)=>{
-            return <div className='col-md-4'>
-              <NewsItem target="_blank" key={element.url} title={element.title?element.title.slice(0,60)+"...":"check out the title of the story by clicking the read more"} description={element.description?element.description.slice(0,151)+"...":"check out the description of the story by clicking the read more"} imgUrl={element.urlToImage?element.urlToImage:"https://images.hindustantimes.com/img/2022/06/17/1600x900/Varun_Gandhi_1655465995661_1655466004449.jpg"} url={element.url?element.url:""}/>
+            return <div className={`col-md-4`}>
+              <NewsItem mode={mode} mode2={mode2} target="_blank" key={element.url} title={element.title?element.title.slice(0,60)+"...":"check out the title of the story by clicking the read more"} description={element.description?element.description.slice(0,151)+"...":"check out the description of the story by clicking the read more"} imgUrl={element.urlToImage?element.urlToImage:"https://images.hindustantimes.com/img/2022/06/17/1600x900/Varun_Gandhi_1655465995661_1655466004449.jpg"} url={element.url?element.url:""}/>
               </div>  
             })}
-            <div className="cointainer">
+            <div className={`cointainer bg-${mode}`}>
             <div className="d-flex justify-content-between">
-            <button type="button" disabled={this.state.page<=1} className="btn btn-dark" onClick={this.handlePreviousClick}>&larr; Previous</button>
-            <button type="button" className="btn btn-dark" onClick={this.handleNextclick}>Next &rarr;</button>
+            <button type={"button bg"} disabled={this.state.page<=1} className={`btn btn-${mode} text-${mode2}`} onClick={this.handlePreviousClick}>&larr; Previous</button>
+            <button type="button" className={`btn btn-${mode} text-${mode2}`} onClick={this.handleNextclick}>Next &rarr;</button>
             </div>
             </div>
         </div>
