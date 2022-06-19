@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import NewsItem from './components/NewsItem'
 import Spinner from './components/Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
-import LoadingBar from 'react-top-loading-bar'
 
 export default class Heading extends Component {
   articles=[]
@@ -18,12 +17,14 @@ export default class Heading extends Component {
   }
   
   async newsUpdate(){
+    this.props.setProgress(10);
     let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${this.props.akey}&page=${this.state.page}&pageSize=${this.props.newsSize}`;
     let data=await fetch(url);
     let parsedData=await data.json();
     this.setState({articles: parsedData.articles,
        totalArticles: parsedData.totalResults,
         loading : false})
+        this.props.setProgress(100);
   }
 
   async componentDidMount(){

@@ -9,11 +9,13 @@ import {
 	Routes,
 	Route,
 } from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar'
 
 export default class App extends Component {
 
   mode;
   mode2
+  apiKey="3f21500c6c654b198f7104ceadc8c83e";
   constructor(){
     super();
    console.log("In app.js");
@@ -40,20 +42,28 @@ export default class App extends Component {
   }
   artNum=9;
 
+  setProgress=(progress)=>{
+    this.setState({progress : progress})
+  }
+
  render() {
     return (
       <div>
+        <LoadingBar
+        color='#f11946'
+        progress={this.state.progress}/>
         <Router>
         <Navbar mode={this.state.mode} toogleMode={this.toogleMode}/>
          <Routes>
-          <Route exact path="/" element={<Heading key="heading" mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/business" element={<News key="business"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Business" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/entertainment" element={<News key="entertainment"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Entertainment" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/general" element={<News key="genral"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="General" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/health" element={<News key="health"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Health" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/science" element={<News key="science"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Science" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/sports" element={<News key="sports"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Sports" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
-          <Route exact path="/technology" element={<News key="technology"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Technology" akey="90e7f116117d4e6aa91f10765c013282"/>}/>
+          {/* Here the api key is changed to the secure account api key */}
+          <Route exact path="/" element={<Heading setProgress={this.setProgress} key="heading" mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} akey={this.apiKey}/>}/>
+          <Route exact path="/business" element={<News setProgress={this.setProgress} key="business"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Business" akey={this.apiKey}/>}/>
+          <Route exact path="/entertainment" element={<News setProgress={this.setProgress} key="entertainment"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Entertainment" akey={this.apiKey}/>}/>
+          <Route exact path="/general" element={<News setProgress={this.setProgress} key="genral"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="General" akey={this.apiKey}/>}/>
+          <Route exact path="/health" element={<News setProgress={this.setProgress} key="health"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Health" akey={this.apiKey}/>}/>
+          <Route exact path="/science" element={<News setProgress={this.setProgress} key="science"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Science" akey={this.apiKey}/>}/>
+          <Route exact path="/sports" element={<News setProgress={this.setProgress} key="sports"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Sports" akey={this.apiKey}/>}/>
+          <Route exact path="/technology" element={<News setProgress={this.setProgress} key="technology"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Technology" akey={this.apiKey}/>}/>
           </Routes>
         </Router>
       </div>
