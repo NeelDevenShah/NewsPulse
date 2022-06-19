@@ -1,5 +1,4 @@
 import './App.css';
-
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
@@ -10,63 +9,52 @@ import {
 	Route,
 } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
+import { useState } from 'react';
 
-export default class App extends Component {
+const App=()=>{
+  const [mode, setMode]=useState("light");
+  const [mode2, setMode2]=useState("dark");
+  let apiKey="90e7f116117d4e6aa91f10765c013282";
 
-  mode;
-  mode2
-  apiKey="3f21500c6c654b198f7104ceadc8c83e";
-  constructor(){
-    super();
-   console.log("In app.js");
-    this.state={
-     mode: "light",
-     mode2: "dark",
-    }
-   console.log("out of the app.js");
-  }
-
-  toogleMode=()=>{
-    if(this.state.mode==="light"){
-      console.log("The colour changed to dark");
+  const toogleMode=()=>{
+    if(mode==="light"){
       document.body.style.backgroundColor="#6e6868"
-      this.setState({mode: "dark"});
-      this.setState({mode2: "light"});
+      setMode("dark")
+      setMode2("light")
     }
     else{
-      console.log("The colour changed to light");
       document.body.style.backgroundColor="#FFFFFF"
-      this.setState({mode: "light"});
-      this.setState({mode2: "dark"})
+      setMode("light")
+      setMode2("dark")
     }
   }
-  artNum=9;
+  let artNum=9;
+  // const setProgress=(progress)=>{
+  //   setState({progress : progress})
+  // }
+  const [progress, setProgress]=useState(0);
 
-  setProgress=(progress)=>{
-    this.setState({progress : progress})
-  }
-
- render() {
     return (
       <div>
         <LoadingBar
         color='#f11946'
-        progress={this.state.progress}/>
+        setProgress={progress}/>
         <Router>
-        <Navbar mode={this.state.mode} toogleMode={this.toogleMode}/>
+        <Navbar mode={mode} toogleMode={toogleMode}/>
          <Routes>
           {/* Here the api key is changed to the secure account api key */}
-          <Route exact path="/" element={<Heading setProgress={this.setProgress} key="heading" mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} akey={this.apiKey}/>}/>
-          <Route exact path="/business" element={<News setProgress={this.setProgress} key="business"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Business" akey={this.apiKey}/>}/>
-          <Route exact path="/entertainment" element={<News setProgress={this.setProgress} key="entertainment"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Entertainment" akey={this.apiKey}/>}/>
-          <Route exact path="/general" element={<News setProgress={this.setProgress} key="genral"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="General" akey={this.apiKey}/>}/>
-          <Route exact path="/health" element={<News setProgress={this.setProgress} key="health"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Health" akey={this.apiKey}/>}/>
-          <Route exact path="/science" element={<News setProgress={this.setProgress} key="science"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Science" akey={this.apiKey}/>}/>
-          <Route exact path="/sports" element={<News setProgress={this.setProgress} key="sports"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Sports" akey={this.apiKey}/>}/>
-          <Route exact path="/technology" element={<News setProgress={this.setProgress} key="technology"  mode={this.state.mode} mode2={this.state.mode2} newsSize={this.artNum} country={'in'} category="Technology" akey={this.apiKey}/>}/>
+          <Route exact path="/" element={<Heading setProgress={setProgress} key="heading" mode={mode} mode2={mode2} newsSize={artNum} country={'in'} akey={apiKey}/>}/>
+          <Route exact path="/business" element={<News setProgress={setProgress} key="business"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="Business" akey={apiKey}/>}/>
+          <Route exact path="/entertainment" element={<News setProgress={setProgress} key="entertainment"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="Entertainment" akey={apiKey}/>}/>
+          <Route exact path="/general" element={<News setProgress={setProgress} key="genral"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="General" akey={apiKey}/>}/>
+          <Route exact path="/health" element={<News setProgress={setProgress} key="health"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="Health" akey={apiKey}/>}/>
+          <Route exact path="/science" element={<News setProgress={setProgress} key="science"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="Science" akey={apiKey}/>}/>
+          <Route exact path="/sports" element={<News setProgress={setProgress} key="sports"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="Sports" akey={apiKey}/>}/>
+          <Route exact path="/technology" element={<News setProgress={setProgress} key="technology"  mode={mode} mode2={mode2} newsSize={artNum} country={'in'} category="Technology" akey={apiKey}/>}/>
           </Routes>
         </Router>
       </div>
     )
-  }
 }
+
+export default App
