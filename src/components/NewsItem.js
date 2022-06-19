@@ -13,7 +13,7 @@ export default class NewsItem extends Component {
         <h5 className={`text-${mode2}`}>{title}</h5>
         <p className={`text-${mode2}`}>{description}</p>
         <p className="card-text"><small className="text-danger">By {author} on {new Date(time).toLocaleString()}</small></p>
-        <a href={url} className={`btn btn-sm btn-${mode2}`}>Read More</a>
+        <a href={url} className={`btn btn-sm btn-${mode2}`} target="_blank">Read More</a>
         </div>
       </div>
       </div>
